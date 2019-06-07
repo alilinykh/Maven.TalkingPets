@@ -1,18 +1,14 @@
 package io.zipcoder.polymorphism;
-
-public class Pet {
+abstract public class Pet {
     String name;
     String kind;
 
     public Pet(String name, String kind) {
-        this.name = "Pet";
-        this.kind = "Animal";
+        this.name = name;
+        this.kind = kind;
     }
 
-    public void speak () {
-        System.out.println("Where are my bagels???");
-
-    }
+abstract public String speak ();
 
     public String getName() {
         return name;
@@ -29,4 +25,5 @@ public class Pet {
     public void setKind(String kind) {
         this.kind = kind;
     }
+
 }
