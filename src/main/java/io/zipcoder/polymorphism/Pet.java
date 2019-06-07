@@ -7,6 +7,10 @@ abstract public class Pet {
         this.name = name;
         this.kind = kind;
     }
+    public Pet (){
+        name = "Pet";
+        kind = "Kind";
+    }
 
 abstract public String speak ();
 

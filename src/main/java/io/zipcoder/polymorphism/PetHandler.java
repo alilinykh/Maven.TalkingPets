@@ -12,28 +12,23 @@ public class PetHandler {
     private String name = "";
     private String kind = "";
     private ArrayList<Pet> pets = new ArrayList<Pet>();
-    private Pet pet;
+    Scanner sc = new Scanner(System.in);
 
 
     public Integer getNumPets () {
         System.out.println("Please enter num of pets");
-        Scanner sc = new Scanner(System.in);
         numPets = sc.nextInt();
         return numPets;
     }
 
     public void getPetInfo(Integer numPets) {
-
-        Scanner sc = new Scanner(System.in);
         System.out.println("Please, enter information about each pet you have");
         for (int i = 0; i < numPets; i++) {
-            System.out.println("Enter pet's name: ");
-            this.name = sc.nextLine();
-            System.out.println("Enter kind of animal: ");
-            this.kind = sc.nextLine();
+            this.name = getName();
+            this.kind = getKind();
             addPet(name, kind);
+            sc.close();
         }
-        sc.close();
     }
     public void addPet (String name, String kind) {
 
@@ -45,11 +40,30 @@ public class PetHandler {
                 System.out.println("Please Keep you imagine pets inside your head");
         }
     }
-    public void printPets () {
+    public String printPets () {
+        String result = "";
         for (Pet p: pets
              ) {
-            System.out.println(p.kind + " named " + p.name + " says " + p.speak());
+            result += p.kind + " named " + p.name + " says " + p.speak();
         }
+        return result;
+    }
+    public String getName() {
+        System.out.println("Enter pet's name: ");
+        sc.nextLine();
+        return sc.nextLine();
+    }
+    public String getKind () {
+        System.out.println("Enter kind of animal: ");
+        return sc.nextLine();
+
     }
 
+    public ArrayList<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(ArrayList<Pet> pets) {
+        this.pets = pets;
+    }
 }

@@ -11,6 +11,6 @@ public class MainApplication {
     public static void main(String[] args) {
         PetHandler petHandler = new PetHandler();
         petHandler.getPetInfo(petHandler.getNumPets());
-        petHandler.printPets();
+        System.out.println(petHandler.printPets());
     }
 }
